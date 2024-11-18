@@ -9,7 +9,7 @@ const Todo = ({data, setSignal, signal}: {data: TodoType, setSignal: (data: numb
         };
         if (localStorage.getItem('todos')) {
             const oldData: TodoType[] = JSON.parse(localStorage.getItem('todos') || "");
-            const updateData = oldData.map(item => item.title === data.title && item.id === data.id ? updatedData : item);
+            const updateData = oldData.map(item => item.id === data.id ? updatedData : item);
             const stringifyIt = JSON.stringify(updateData);
             localStorage.setItem("todos", stringifyIt)
             setSignal(signal + 1);
@@ -20,7 +20,7 @@ const Todo = ({data, setSignal, signal}: {data: TodoType, setSignal: (data: numb
         const confirm = window.confirm("Are you sure you want to delete this todo?");
         if (confirm && localStorage.getItem('todos')) {
             const oldData: TodoType[] = JSON.parse(localStorage.getItem('todos') || "");
-            const updateData = oldData.filter(item => item.title !== data.title && item.id !== data.id);
+            const updateData = oldData.filter(item => item.id !== data.id);
             const stringifyIt = JSON.stringify(updateData);
             localStorage.setItem("todos", stringifyIt);
             setSignal(signal + 1);
