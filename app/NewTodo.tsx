@@ -5,10 +5,14 @@ import Form from 'next/form'
 const NewTodo = ({alert, alertValue}: {alertValue:number, alert: (data: number) => void}) => {
     const [show, setShow] = useState(false);
     const action = (formData: FormData) => {
+        const uniqueId = new Date().getTime() + Math.random();
+
         const data = {
             title: formData.get('title') as string,
             description: formData.get('description') as string,
-            status: "Pending"
+            status: "Pending",
+            id: uniqueId
+
         };
         if (localStorage.getItem('todos')) {
           const oldData: TodoType[] = JSON.parse(localStorage.getItem('todos') || "");
@@ -34,7 +38,7 @@ const NewTodo = ({alert, alertValue}: {alertValue:number, alert: (data: number) 
                             Title
                         </label>
                         <input type="text" name='title' id="title" className="block w-full px-4 py-2 mt-2 text-gray-100 bg-transparent border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required  />
-                         />
+                       
                     
                         <label htmlFor="description" className="block mt-4 text-white">
                             Description
