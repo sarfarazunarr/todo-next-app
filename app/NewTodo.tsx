@@ -33,11 +33,13 @@ const NewTodo = ({alert, alertValue}: {alertValue:number, alert: (data: number) 
                         <label htmlFor="title" className="block text-white">
                             Title
                         </label>
-                        <input type="text" name='title' id="title" className="block w-full px-4 py-2 mt-2 text-gray-100 bg-transparent border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" />
+                        <input type="text" name='title' id="title" className="block w-full px-4 py-2 mt-2 text-gray-100 bg-transparent border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required  />
+                         />
+                    
                         <label htmlFor="description" className="block mt-4 text-white">
                             Description
                         </label>
-                        <textarea id="description" name='description' className="block w-full px-4 py-2 mt-2 text-gray-100 bg-transparent border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" />
+                        <textarea id="description" name='description' className="block w-full px-4 py-2 mt-2 text-gray-100 bg-transparent border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required />
                         <div className='flex justify-center items-center gap-4'>
                             <button type='submit' className="mt-4 bg-indigo-700 hover:bg-indigo-900 text-white font-bold py-2 px-6 rounded">
                                 Add
